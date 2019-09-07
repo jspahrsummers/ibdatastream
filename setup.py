@@ -27,6 +27,6 @@ setup(
         "Topic :: Internet",
         "Topic :: Office/Business :: Financial :: Investment",
     ],
-    install_requires=["grpcio ~= 1.23", "ib-insync ~= 0.9.56"],
+    install_requires=["grpcio ~= 1.23", "ib-insync ~= 0.9.56", "protobuf ~= 3.9"],
     keywords="trading investing finance ib ibkr tws",
 )
