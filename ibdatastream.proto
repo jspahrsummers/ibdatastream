@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ib_data_stream;
+package ibdatastream;
 
 message ContractLookup {
     string symbol = 1;
