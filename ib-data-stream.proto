@@ -1,0 +1,61 @@
+syntax = "proto3";
+package ib_data_stream;
+
+message ContractLookup {
+    string symbol = 1;
+
+    enum SecurityType {
+        STOCK = 0;
+        OPTION = 1;
+        FUTURE = 2;
+        INDEX = 3;
+        FUTURES_OPTION = 4;
+        CASH = 5;
+        CFD = 6;
+        COMBO = 7;
+        WARRANT = 8;
+        BOND = 9;
+        COMMODITY = 10;
+        NEWS = 11;
+        FUND = 12;
+    }
+
+    SecurityType secType = 2;
+    string lastTradeDateOrContractMonth = 3;
+    string strike = 4;
+
+    enum Right {
+        UNSET = 0;
+        PUT = 1;
+        CALL = 2;
+    }
+
+    Right right = 5;
+    string multiplier = 6;
+    string exchange = 7;
+    string currency = 8;
+    string localSymbol = 9;
+    string primaryExchange = 10;
+    string tradingClass = 11;
+    bool includeExpired = 12;
+}
+
+message Contract {
+    int64 contractID = 1;
+}
+
+message Ticker {
+    string ask = 1;
+    int64 askSize = 2;
+    string bid = 3;
+    int64 bidSize = 4;
+    string open = 5;
+    string close = 6;
+    string last = 7;
+}
+
+service IBDataStream {
+    rpc LookUp(ContractLookup) returns (Contract) {}
+
+    rpc Subscribe(Contract) returns (stream Ticker) {}
+}
