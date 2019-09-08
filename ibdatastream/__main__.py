@@ -2,8 +2,6 @@ import logging
 
 from argparse import ArgumentParser
 
-from .server import Server
-
 parser = ArgumentParser(
     prog="ibdatastream",
     description="Microservice to connect to Interactive Brokers and stream market data elsewhere",

@@ -1,5 +1,9 @@
-from .ibdatastream_pb2_grpc import IBDataStreamServicer
+import ibdatastream_pb2_grpc
 
 
-class Server(IBDataStreamServicer):
-    pass
+class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
+    def LookUp(self, request, context):
+        pass
+
+    def Subscribe(self, request, context):
+        pass
