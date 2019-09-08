@@ -27,6 +27,11 @@ class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
 
         logging.debug(f"LookUp({request})")
         conId = asyncio.run_coroutine_threadsafe(_coroutine(), self._loop).result()
+        if not conId:
+            raise RuntimeError(
+                f"Could not qualify contract <{request}> (it may be ambiguous)"
+            )
+
         return ibdatastream_pb2.Contract(contractID=conId)
 
     def Subscribe(self, request, context):
