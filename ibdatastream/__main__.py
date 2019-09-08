@@ -46,7 +46,7 @@ def main() -> None:
     ib = IB.IB()
 
     print(f"Connecting to IB on {args.tws_host}:{args.tws_port}")
-    ib.connect(host=args.tws_host, port=args.tws_port)
+    ib.connect(host=args.tws_host, port=args.tws_port, readonly=True)
 
     port = args.port or random.randint(49152, 65535)
     s = server.start(port, ib, asyncio.get_event_loop())
