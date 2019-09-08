@@ -1,7 +1,7 @@
 import concurrent.futures as futures
 import unittest
 
-import grpc  # type: ignore
+import grpc
 
 from ibdatastream import ibdatastream_pb2, ibdatastream_pb2_grpc, server
 
