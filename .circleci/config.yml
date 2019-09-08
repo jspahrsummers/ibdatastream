@@ -52,9 +52,9 @@ jobs:
             . venv/bin/activate
             python -m unittest -v
 
-      #- store_artifacts:
-      #    path: test-reports
-      #    destination: test-reports
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
 
       - run:
           name: linting
