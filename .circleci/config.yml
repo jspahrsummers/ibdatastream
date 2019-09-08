@@ -68,3 +68,4 @@ jobs:
             python3 -m venv --clear venv
             . venv/bin/activate
             pip install .
+            ibdatastream --help

@@ -17,6 +17,7 @@ setup(
     package_data={"ibdatastream": ["ibdatastream.proto", "py.typed"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
+        "Environment :: Console",
         "Environment :: No Input/Output (Daemon)",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
@@ -29,4 +30,5 @@ setup(
     ],
     install_requires=["grpcio ~= 1.23", "ib-insync ~= 0.9.56", "protobuf ~= 3.9"],
     keywords="trading investing finance ib ibkr tws",
+    entry_points={"console_scripts": ["ibdatastream = ibdatastream.__main__:main"]},
 )
