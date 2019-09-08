@@ -1,4 +1,4 @@
-import ibdatastream_pb2_grpc
+from . import ibdatastream_pb2_grpc
 
 
 class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
