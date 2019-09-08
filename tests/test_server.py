@@ -11,10 +11,7 @@ class TestServer(unittest.TestCase):
     stub: ibdatastream_pb2_grpc.IBDataStreamStub
 
     def setUp(self) -> None:
-        s = grpc.server(futures.ThreadPoolExecutor())
-        ibdatastream_pb2_grpc.add_IBDataStreamServicer_to_server(server.Servicer(), s)
-        s.add_insecure_port(f"[::]:{self.port}")
-        s.start()
+        server.start(self.port)
 
         channel = grpc.insecure_channel(f"localhost:{self.port}")
         self.stub = ibdatastream_pb2_grpc.IBDataStreamStub(channel)
