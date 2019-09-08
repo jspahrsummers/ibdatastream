@@ -20,7 +20,7 @@ message ContractLookup {
         FUND = 12;
     }
 
-    SecurityType secType = 2;
+    SecurityType securityType = 2;
     string lastTradeDateOrContractMonth = 3;
     string strike = 4;
 

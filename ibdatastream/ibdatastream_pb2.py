@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ibdatastream',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1fibdatastream/ibdatastream.proto\x12\x0cibdatastream\"\xab\x04\n\x0e\x43ontractLookup\x12\x0e\n\x06symbol\x18\x01 \x01(\t\x12:\n\x07secType\x18\x02 \x01(\x0e\x32).ibdatastream.ContractLookup.SecurityType\x12$\n\x1clastTradeDateOrContractMonth\x18\x03 \x01(\t\x12\x0e\n\x06strike\x18\x04 \x01(\t\x12\x31\n\x05right\x18\x05 \x01(\x0e\x32\".ibdatastream.ContractLookup.Right\x12\x12\n\nmultiplier\x18\x06 \x01(\t\x12\x10\n\x08\x65xchange\x18\x07 \x01(\t\x12\x10\n\x08\x63urrency\x18\x08 \x01(\t\x12\x13\n\x0blocalSymbol\x18\t \x01(\t\x12\x17\n\x0fprimaryExchange\x18\n \x01(\t\x12\x14\n\x0ctradingClass\x18\x0b \x01(\t\x12\x16\n\x0eincludeExpired\x18\x0c \x01(\x08\"\xa8\x01\n\x0cSecurityType\x12\t\n\x05STOCK\x10\x00\x12\n\n\x06OPTION\x10\x01\x12\n\n\x06\x46UTURE\x10\x02\x12\t\n\x05INDEX\x10\x03\x12\x12\n\x0e\x46UTURES_OPTION\x10\x04\x12\x08\n\x04\x43\x41SH\x10\x05\x12\x07\n\x03\x43\x46\x44\x10\x06\x12\t\n\x05\x43OMBO\x10\x07\x12\x0b\n\x07WARRANT\x10\x08\x12\x08\n\x04\x42OND\x10\t\x12\r\n\tCOMMODITY\x10\n\x12\x08\n\x04NEWS\x10\x0b\x12\x08\n\x04\x46UND\x10\x0c\"%\n\x05Right\x12\t\n\x05UNSET\x10\x00\x12\x07\n\x03PUT\x10\x01\x12\x08\n\x04\x43\x41LL\x10\x02\"\x1e\n\x08\x43ontract\x12\x12\n\ncontractID\x18\x01 \x01(\x03\"o\n\x06Ticker\x12\x0b\n\x03\x61sk\x18\x01 \x01(\t\x12\x0f\n\x07\x61skSize\x18\x02 \x01(\x03\x12\x0b\n\x03\x62id\x18\x03 \x01(\t\x12\x0f\n\x07\x62idSize\x18\x04 \x01(\x03\x12\x0c\n\x04open\x18\x05 \x01(\t\x12\r\n\x05\x63lose\x18\x06 \x01(\t\x12\x0c\n\x04last\x18\x07 \x01(\t2\x8f\x01\n\x0cIBDataStream\x12@\n\x06LookUp\x12\x1c.ibdatastream.ContractLookup\x1a\x16.ibdatastream.Contract\"\x00\x12=\n\tSubscribe\x12\x16.ibdatastream.Contract\x1a\x14.ibdatastream.Ticker\"\x00\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x1fibdatastream/ibdatastream.proto\x12\x0cibdatastream\"\xb0\x04\n\x0e\x43ontractLookup\x12\x0e\n\x06symbol\x18\x01 \x01(\t\x12?\n\x0csecurityType\x18\x02 \x01(\x0e\x32).ibdatastream.ContractLookup.SecurityType\x12$\n\x1clastTradeDateOrContractMonth\x18\x03 \x01(\t\x12\x0e\n\x06strike\x18\x04 \x01(\t\x12\x31\n\x05right\x18\x05 \x01(\x0e\x32\".ibdatastream.ContractLookup.Right\x12\x12\n\nmultiplier\x18\x06 \x01(\t\x12\x10\n\x08\x65xchange\x18\x07 \x01(\t\x12\x10\n\x08\x63urrency\x18\x08 \x01(\t\x12\x13\n\x0blocalSymbol\x18\t \x01(\t\x12\x17\n\x0fprimaryExchange\x18\n \x01(\t\x12\x14\n\x0ctradingClass\x18\x0b \x01(\t\x12\x16\n\x0eincludeExpired\x18\x0c \x01(\x08\"\xa8\x01\n\x0cSecurityType\x12\t\n\x05STOCK\x10\x00\x12\n\n\x06OPTION\x10\x01\x12\n\n\x06\x46UTURE\x10\x02\x12\t\n\x05INDEX\x10\x03\x12\x12\n\x0e\x46UTURES_OPTION\x10\x04\x12\x08\n\x04\x43\x41SH\x10\x05\x12\x07\n\x03\x43\x46\x44\x10\x06\x12\t\n\x05\x43OMBO\x10\x07\x12\x0b\n\x07WARRANT\x10\x08\x12\x08\n\x04\x42OND\x10\t\x12\r\n\tCOMMODITY\x10\n\x12\x08\n\x04NEWS\x10\x0b\x12\x08\n\x04\x46UND\x10\x0c\"%\n\x05Right\x12\t\n\x05UNSET\x10\x00\x12\x07\n\x03PUT\x10\x01\x12\x08\n\x04\x43\x41LL\x10\x02\"\x1e\n\x08\x43ontract\x12\x12\n\ncontractID\x18\x01 \x01(\x03\"o\n\x06Ticker\x12\x0b\n\x03\x61sk\x18\x01 \x01(\t\x12\x0f\n\x07\x61skSize\x18\x02 \x01(\x03\x12\x0b\n\x03\x62id\x18\x03 \x01(\t\x12\x0f\n\x07\x62idSize\x18\x04 \x01(\x03\x12\x0c\n\x04open\x18\x05 \x01(\t\x12\r\n\x05\x63lose\x18\x06 \x01(\t\x12\x0c\n\x04last\x18\x07 \x01(\t2\x8f\x01\n\x0cIBDataStream\x12@\n\x06LookUp\x12\x1c.ibdatastream.ContractLookup\x1a\x16.ibdatastream.Contract\"\x00\x12=\n\tSubscribe\x12\x16.ibdatastream.Contract\x1a\x14.ibdatastream.Ticker\"\x00\x30\x01\x62\x06proto3')
 )
 
 
@@ -86,8 +86,8 @@ _CONTRACTLOOKUP_SECURITYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=398,
-  serialized_end=566,
+  serialized_start=403,
+  serialized_end=571,
 )
 _sym_db.RegisterEnumDescriptor(_CONTRACTLOOKUP_SECURITYTYPE)
 
@@ -112,8 +112,8 @@ _CONTRACTLOOKUP_RIGHT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=568,
-  serialized_end=605,
+  serialized_start=573,
+  serialized_end=610,
 )
 _sym_db.RegisterEnumDescriptor(_CONTRACTLOOKUP_RIGHT)
 
@@ -133,7 +133,7 @@ _CONTRACTLOOKUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='secType', full_name='ibdatastream.ContractLookup.secType', index=1,
+      name='securityType', full_name='ibdatastream.ContractLookup.securityType', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -224,7 +224,7 @@ _CONTRACTLOOKUP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=50,
-  serialized_end=605,
+  serialized_end=610,
 )
 
 
@@ -254,8 +254,8 @@ _CONTRACT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=607,
-  serialized_end=637,
+  serialized_start=612,
+  serialized_end=642,
 )
 
 
@@ -327,11 +327,11 @@ _TICKER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=639,
-  serialized_end=750,
+  serialized_start=644,
+  serialized_end=755,
 )
 
-_CONTRACTLOOKUP.fields_by_name['secType'].enum_type = _CONTRACTLOOKUP_SECURITYTYPE
+_CONTRACTLOOKUP.fields_by_name['securityType'].enum_type = _CONTRACTLOOKUP_SECURITYTYPE
 _CONTRACTLOOKUP.fields_by_name['right'].enum_type = _CONTRACTLOOKUP_RIGHT
 _CONTRACTLOOKUP_SECURITYTYPE.containing_type = _CONTRACTLOOKUP
 _CONTRACTLOOKUP_RIGHT.containing_type = _CONTRACTLOOKUP
@@ -369,8 +369,8 @@ _IBDATASTREAM = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=753,
-  serialized_end=896,
+  serialized_start=758,
+  serialized_end=901,
   methods=[
   _descriptor.MethodDescriptor(
     name='LookUp',
