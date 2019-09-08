@@ -39,18 +39,18 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       
-      #- run:
-      #    name: typecheck
-      #    command: |
-      #      . venv/bin/activate
-      #      mypy --namespace-packages --strict --implicit-reexport bankroll/
-      #      mypy --namespace-packages --strict --implicit-reexport -p tests
+      - run:
+          name: typecheck
+          command: |
+            . venv/bin/activate
+            mypy -p ibdatastream
+            mypy -p tests
 
-      #- run:
-      #    name: run tests
-      #    command: |
-      #      . venv/bin/activate
-      #      python -m unittest -v
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            python -m unittest -v
 
       #- store_artifacts:
       #    path: test-reports
@@ -60,7 +60,7 @@ jobs:
       #    name: linting
       #    command: |
       #      . venv/bin/activate
-      #      black --check bankroll tests
+      #      black --check ibdatastream tests
       
       - run:
           name: test installing
