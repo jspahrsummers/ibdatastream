@@ -56,11 +56,11 @@ jobs:
       #    path: test-reports
       #    destination: test-reports
 
-      #- run:
-      #    name: linting
-      #    command: |
-      #      . venv/bin/activate
-      #      black --check ibdatastream tests
+      - run:
+          name: linting
+          command: |
+            . venv/bin/activate
+            black --exclude '_pb2' --check ibdatastream tests
       
       - run:
           name: test installing
