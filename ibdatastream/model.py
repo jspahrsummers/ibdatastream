@@ -47,4 +47,3 @@ def contract_from_lookup(lookup: Any) -> IB.Contract:
         tradingClass=lookup.tradingClass,
         includeExpired=lookup.includeExpired,
     )
-
