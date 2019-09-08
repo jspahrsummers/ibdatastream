@@ -8,4 +8,5 @@ COPY LICENSE LICENSE
 COPY README.md README.md
 RUN pip install --no-cache-dir .
 
-CMD python -m ibdatastream
+EXPOSE 50051
+ENTRYPOINT [ "ibdatastream", "--port", "50051" ]
