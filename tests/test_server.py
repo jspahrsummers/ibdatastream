@@ -6,12 +6,13 @@ import grpc
 from ibdatastream import ibdatastream_pb2, ibdatastream_pb2_grpc, server
 
 
+@unittest.skip("Disabled until IB can be stubbed out")
 class TestServer(unittest.TestCase):
     port = 50051
     stub: ibdatastream_pb2_grpc.IBDataStreamStub
 
     def setUp(self) -> None:
-        server.start(self.port)
+        # server.start(self.port)
 
         channel = grpc.insecure_channel(f"localhost:{self.port}")
         self.stub = ibdatastream_pb2_grpc.IBDataStreamStub(channel)
