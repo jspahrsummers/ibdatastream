@@ -56,7 +56,7 @@ def main() -> None:
     # https://bugs.python.org/issue23057
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-    asyncio.get_event_loop().run_forever()
+    ib.run()
 
 
 if __name__ == "__main__":
