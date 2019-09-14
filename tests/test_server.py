@@ -6,6 +6,7 @@ import unittest
 import grpc
 
 from ibdatastream import ibdatastream_pb2, ibdatastream_pb2_grpc, server
+from ibdatastream.futures_bridge import future_to_aio_future
 
 from tests import helpers
 
@@ -34,7 +35,7 @@ class TestServer(unittest.TestCase):
     def test_look_up(self) -> None:
         f = self.stub.LookUp.future(ibdatastream_pb2.ContractLookup(symbol="SPY"))
 
-        contract = self.ev.run_until_complete(asyncio.wrap_future(f))
+        contract = self.ev.run_until_complete(future_to_aio_future(f, loop=self.ev))
         self.assertIsNotNone(contract)
 
 
