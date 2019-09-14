@@ -4,9 +4,10 @@ import random
 import signal
 from argparse import ArgumentParser
 
-import ib_insync as IB
+import ib_insync
 
 from . import server
+from .ib import IBInSyncClient
 
 parser = ArgumentParser(
     prog="ibdatastream",
@@ -43,13 +44,13 @@ def main() -> None:
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG if args.verbose >= 2 else logging.INFO)
 
-    ib = IB.IB()
+    ib = ib_insync.IB()
 
     print(f"Connecting to IB on {args.tws_host}:{args.tws_port}")
     ib.connect(host=args.tws_host, port=args.tws_port, readonly=True)
 
     port = args.port or random.randint(49152, 65535)
-    s = server.start(port, ib, asyncio.get_event_loop())
+    s = server.start(port, IBInSyncClient(ib), asyncio.get_event_loop())
     print(f"Server listening on port {port}")
 
     # Install SIGINT handler. This is apparently necessary for the process to be interruptible with Ctrl-C on Windows:

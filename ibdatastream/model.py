@@ -1,7 +1,5 @@
-from . import ibdatastream_pb2
+from . import ibdatastream_pb2, ib
 from decimal import Decimal
-
-import ib_insync as IB
 
 from typing import Any
 
@@ -30,10 +28,10 @@ _right_mapping = {
 }
 
 
-def contract_from_lookup(lookup: Any) -> IB.Contract:
+def contract_from_lookup(lookup: Any) -> ib.Contract:
     """Converts a ContractLookup message into an ib_insync Contract object."""
 
-    return IB.Contract(
+    return ib.Contract(
         symbol=lookup.symbol,
         secType=_security_type_mapping[lookup.securityType],
         lastTradeDateOrContractMonth=lookup.lastTradeDateOrContractMonth,

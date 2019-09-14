@@ -4,14 +4,14 @@ import logging
 from typing import Optional
 
 import grpc
-import ib_insync as IB
 
 from . import ibdatastream_pb2, ibdatastream_pb2_grpc, model
+from .ib import IBClient
 
 
 class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
-    def __init__(self, ib: IB, eventLoop: asyncio.AbstractEventLoop):
-        self._ib = ib
+    def __init__(self, ib_client: IBClient, eventLoop: asyncio.AbstractEventLoop):
+        self._ib_client = ib_client
         self._loop = eventLoop
         super().__init__()
 
@@ -20,7 +20,7 @@ class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
             contract = model.contract_from_lookup(request)
 
             logging.debug(f"Qualifying contract {contract}")
-            await self._ib.qualifyContractsAsync(contract)
+            await self._ib_client.qualify_contract_inplace(contract)
             logging.debug(f"Qualified contract: {contract}")
 
             return contract.conId
@@ -40,7 +40,7 @@ class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
 
 def start(
     port: int,
-    ib: IB.IB,
+    ib_client: IBClient,
     eventLoop: Optional[asyncio.AbstractEventLoop] = None,
     executor: Optional[futures.ThreadPoolExecutor] = None,
 ) -> grpc.Server:
@@ -51,7 +51,9 @@ def start(
         executor = futures.ThreadPoolExecutor()
 
     s = grpc.server(executor)
-    ibdatastream_pb2_grpc.add_IBDataStreamServicer_to_server(Servicer(ib, eventLoop), s)
+    ibdatastream_pb2_grpc.add_IBDataStreamServicer_to_server(
+        Servicer(ib_client, eventLoop), s
+    )
     s.add_insecure_port(f"[::]:{port}")
     s.start()
 
