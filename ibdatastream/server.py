@@ -1,7 +1,7 @@
 import asyncio
 import concurrent.futures as futures
 import logging
-from typing import Optional
+from typing import Any, Optional
 
 import grpc
 
@@ -15,15 +15,15 @@ class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
         self._loop = eventLoop
         super().__init__()
 
-    def LookUp(self, request, context):
-        async def _coroutine():
+    def LookUp(self, request: Any, context: Any) -> Any:
+        async def _coroutine() -> int:
             contract = model.contract_from_lookup(request)
 
             logging.debug(f"Qualifying contract {contract}")
             await self._ib_client.qualify_contract_inplace(contract)
             logging.debug(f"Qualified contract: {contract}")
 
-            return contract.conId
+            return int(contract.conId)
 
         logging.debug(f"LookUp({request})")
         conId = asyncio.run_coroutine_threadsafe(_coroutine(), self._loop).result()
@@ -34,7 +34,7 @@ class Servicer(ibdatastream_pb2_grpc.IBDataStreamServicer):
 
         return ibdatastream_pb2.Contract(contractID=conId)
 
-    def Subscribe(self, request, context):
+    def Subscribe(self, request: Any, context: Any) -> Any:
         pass
 
 
